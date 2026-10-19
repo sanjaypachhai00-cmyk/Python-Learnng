@@ -1,0 +1,43 @@
+django_projects/
+├── .venv/
+└── core/
+    ├── manage.py
+    └── core/
+        ├── __init__.py
+        ├── settings.py
+        ├── urls.py
+        ├── asgi.py
+        └── wsgi.py
+
+
+
+File	           Purpose
+
+manage.py	   Runs Django commands
+settings.py	   Configures the project
+urls.py	           Defines the main URL routes
+__init__.py	   Marks the directory as a Python package
+asgi.py        	   ASGI deployment entry point
+wsgi.py	           WSGI deployment entry point        
+
+
+home/
+├── migrations/
+├── __init__.py
+├── admin.py
+├── apps.py
+├── models.py
+├── tests.py
+└── views.py
+
+views.py: contains Python functions or classes that handle requests.
+
+models.py: defines database models.
+
+admin.py: configures how models appear in Django's admin panel.
+
+apps.py: contains app configuration.
+
+tests.py: contains automated tests.
+
+migrations/: stores database schema change instructions.

@@ -1,0 +1,34 @@
+Django Lesson 1: Project Structure and Apps
+
+
+1. What is a Django project?
+A Django project is the complete website application. It contains the main configuration and connects different apps together.
+Examples:
+- An online shopping website
+- A student management system
+- A cybersecurity monitoring dashboard
+
+2. What is a Django app?
+A Django app is a component of a project that handles a particular feature.
+For example, an online shopping project might contain these apps:
+Django Project: Shop
+
+Accounts app
+Login and registration
+
+
+Products app
+Product listings
+
+
+Orders app
+Customer orders
+
+
+Payments app
+Payment processing
+
+
+
+
+Remember: Project = the whole website. App = one feature or functional component of the website.
