@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        {% block title %}
+            Student Management
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Student Management System</h1>
+
+      <nav>
+
+    <a href="{% url 'main' %}">
+        Home
+    </a>
+
+    |
+
+    <a href="{% url 'all_students' %}">
+        All Students
+    </a>
+
+</nav>
+
+        <hr>
+    </header>
+
+
+    <main>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+
+    <footer>
+        <hr>
+        <p>Copyright 2026 Student Management System</p>
+    </footer>
+
+</body>
+
+</html>
