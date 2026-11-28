@@ -1,0 +1,94 @@
+(.venv) D:\python\django_projects\django_querysets>python manage.py shell
+13 objects imported automatically (use -v 2 for details).
+
+Python 3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from students.models import Student
+>>>
+>>> students = Student.objects.all()
+>>>
+>>> print(students)
+<QuerySet [<Student: Student object (1)>, <Student: Student object (2)>, <Student: Student object (3)>, <Student: Student object (4)>, <Student: Student object (5)>]>
+>>> for student in students:
+...     print(student.name, student.age, student.marks)
+...
+soman 22 4
+gobin 22 90
+john 23 88
+susmitwa 22 78
+sandesh 20 99
+>>> student=Student.objects.get(name='susmitwa')
+>>> print(student)
+Student object (4)
+>>> print(student.name)
+susmitwa
+>>> print(student.email)
+susmita@gmail.com
+>>> print(student.course)
+BBA
+>>> print(student.age)
+22
+>>> students = Student.objects.filter(age=20)
+>>>
+>>> print(students)
+<QuerySet [<Student: Student object (5)>]>
+>>>
+>>> # Students enrolled in Computer Engineering
+>>> Student.objects.filter(course='Computer Engineering')
+<QuerySet []>
+>>>
+>>> # Students who scored 80 marks
+>>> Student.objects.filter(marks=80)
+<QuerySet []>
+>>>
+>>> # Students aged 21
+>>> Student.objects.filter(age=21)
+<QuerySet []>
+>>>
+>>> students = Student.objects.filter(age=20, marks=80)
+>>> Student.objects.filter(age=20)
+<QuerySet [<Student: Student object (5)>]>
+>>> Student.objects.filter(course=BE Computer)
+  File "<console>", line 1
+    Student.objects.filter(course=BE Computer)
+                                  ^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+>>> Student.objects.filter(course='BE Computer')
+<QuerySet [<Student: Student object (3)>, <Student: Student object (5)>]>
+>>> students=Student.object.all().order_by('name')
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'Student' has no attribute 'object'. Did you mean: 'objects'?
+>>> students = Student.objects.all().order_by('name')
+>>>
+>>> for student in students:
+...     print(student.name)
+...
+gobin
+john
+sandesh
+soman
+susmitwa
+>>> students = Student.objects.all().order_by('name')
+>>>
+>>> for student in students:
+... students = Student.objects.all().order_by('name')
+  File "<console>", line 2
+    students = Student.objects.all().order_by('name')
+    ^^^^^^^^
+IndentationError: expected an indented block after 'for' statement on line 1
+>>> from students.model import Student
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+ModuleNotFoundError: No module named 'students.model'
+>>> from students.models import Student
+>>> students=Student.object.exclude(age=20)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: type object 'Student' has no attribute 'object'. Did you mean: 'objects'?
+>>> students = Student.objects.filter(age__gte=18).exclude(marks__lt=40)
+>>>
+>>> Student.objects.exclude(age=20, marks=80)
+<QuerySet [<Student: Student object (1)>, <Student: Student object (2)>, <Student: Student object (3)>, <Student: Student object (4)>, <Student: Student object (5)>]>
+>>> exit()
